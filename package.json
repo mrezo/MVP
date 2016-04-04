@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "browser-sync": "^1.5.7",
+    "clone-stats": "0.0.1",
     "gulp": "^3.8.5",
     "gulp-nodemon": "^1.0.4",
     "gulp-shell": "^0.2.7",
