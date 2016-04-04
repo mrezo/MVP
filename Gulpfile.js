@@ -3,20 +3,15 @@
 var gulp = require('gulp');
 var sync = require('browser-sync');
 var nodemon = require('gulp-nodemon');
-var KarmaServer = require('karma').Server;
 
-// the paths to our app files
+// filepaths to our files.
 var paths = {
-  // all our client app js files, not including 3rd party js files
   scripts: ['client/app/**/*.js'],
   html: ['client/app/**/*.html', 'client/index.html'],
   styles: ['client/styles/style.css'],
-  test: ['specs/**/*.js']
 };
 
-// any changes made to your
-// client side code will automagically refresh your page
-// with the new changes
+//Needed to refresh client side page.
 gulp.task('start', ['serve'], function () {
   sync({
     notify: true,
@@ -27,14 +22,7 @@ gulp.task('start', ['serve'], function () {
   });
 });
 
-// Run our karma tests
-gulp.task('karma', function (done) {
-  new KarmaServer({
-    configFile: __dirname + '/karma.conf.js'
-  }, done).start();
-});
-
-// start our node server using nodemon
+// NODEMON ENGAGE!!!
 gulp.task('serve', function () {
   nodemon({
     script: './server/server.js',
