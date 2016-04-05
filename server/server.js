@@ -9,16 +9,22 @@ var app = express();
 
 mongoose.connect('mongodb://localhost/myGarageApp');
 
+app.use(express.static(__dirname + '../../client/'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/api/cars', carRouter);
 
-app.get('/', function(req, res) {
-  res.json({message: 'SCV READY TO GO'});
+app.get('/api/cars', function(req, res) {
+  if (err) {
+    console.log(err);
+    return;
+  }res.json({message: 'SCV READY TO GO'});
 });
+
+
 
 // // TODO: Use the characterRouter as middleware on the '/api/characters' route
 
-// app.use('/api/characters', characterRouter);
 
 app.listen(port, function(err) {
   if (err) {
