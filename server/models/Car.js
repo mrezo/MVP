@@ -5,6 +5,6 @@ var carSchema = new mongoose.Schema({
   model: String
 });
 
-var Vehicle = mongoose.model('Vehicle', carSchema);
+var Car = mongoose.model('Car', carSchema);
 
-module.exports = Vehicle;
+module.exports = Car;

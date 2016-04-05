@@ -13,6 +13,9 @@ app.controller('carController', function($scope, $http) {
   }
 
   $scope.addToGarage = function(car) {
+
+    // create AJax call to the databse to post car to the garage in the database
+    // then do a fetch from the database to load the cars to the screen.
     var stringedCar = $scope.search + ' ' + car;
     $scope.garage.push(stringedCar);
   }
