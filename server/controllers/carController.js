@@ -11,9 +11,7 @@ exports.createOne = function(req, res) {
 };
 
 exports.retrieveOne = function(req, res) {
-  //have to look in req.params to check for the id. Set the _id to to the value in req.params.id
   var query = {_id: req.params.id};
-  //findOne is the method for selecting a single document.
   Car.findOne(query, function(err, matchingCar){
     if(err){
       return res.json(err);

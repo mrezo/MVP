@@ -3,11 +3,10 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
 var port = 8000;
-
 var carRouter = require('./routers/carRouter');
 var app = express();
 
-mongoose.connect('mongodb://localhost/myGarageApp');
+mongoose.connect('mongodb://localhost/myGarage');
 
 app.use(express.static(__dirname + '../../client/'));
 app.use(bodyParser.json());
