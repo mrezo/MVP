@@ -2,7 +2,7 @@ var app = angular.module('myGarageApp', []);
 
 app.controller('carController', function($scope, $http) {
 
-  var garage = [];
+  $scope.garage = [];
 
   $scope.fetch = function() {
     $http.get('http://api.edmunds.com/api/vehicle/v2/' + $scope.search +'/models?fmt=json&api_key=w3qpygvj3j3vvb8u8rppbbk2')
@@ -12,7 +12,8 @@ app.controller('carController', function($scope, $http) {
       });
   }
 
-  $scope.addToGarage = function() {
-    
+  $scope.addToGarage = function(car) {
+    var stringedCar = $scope.search + ' ' + car;
+    $scope.garage.push(stringedCar);
   }
 });
