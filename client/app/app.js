@@ -1,27 +1,18 @@
-angular.module('myGarageApp', [])
-  .controller('carController', function($scope, $http) {
-    $scope.$watch('search', function() {
-      fetch();
-    });
+var app = angular.module('myGarageApp', []);
 
-    $scope.search = "Volkswagen";
+app.controller('carController', function($scope, $http) {
 
-    function fetch() {
-      $http.get('http://api.edmunds.com/api/vehicle/v2/' + $scope.search +'/models?fmt=json&api_key=w3qpygvj3j3vvb8u8rppbbk2')
-        .then(function(response) {
-          $scope.details = response.data;
-          console.log($scope.details)
-        });
+  var garage = [];
 
-      //render information to a view on the screen
-    }
+  $scope.fetch = function() {
+    $http.get('http://api.edmunds.com/api/vehicle/v2/' + $scope.search +'/models?fmt=json&api_key=w3qpygvj3j3vvb8u8rppbbk2')
+      .then(function (response) {
+        $scope.details = response.data;
+        console.log('We has datas', $scope.details)
+      });
+  }
 
-
-    // $scope.model = function(movie) {
-    //   $scope.search = movie.Title;
-    // };
-
-    // $scope.select = function() {
-    //   this.setSelectionRange(0, this.value.length);
-    // }
-  });
+  $scope.addToGarage = function() {
+    
+  }
+});
