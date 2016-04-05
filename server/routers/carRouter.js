@@ -2,13 +2,12 @@ var carRouter = require('express').Router();
 var carController = require('../controllers/carController.js');
 
 carRouter.route('/') // to all
-  .post(characterController.createOne)
-  .get(characterController.retrieveAll)
-  .delete(characterController.deleteAll);
+  .post(carController.createOne)
+  .get(carController.retrieveAll)
+  .delete(carController.deleteAll);
 
 carRouter.route('/:id') // to one specific
-  .get(characterController.retrieveOne)
-  .put(characterController.updateOne)
-  .delete(characterController.deleteOne);
+  .get(carController.retrieveOne)
+  .delete(carController.deleteOne);
 
 module.exports = carRouter;
