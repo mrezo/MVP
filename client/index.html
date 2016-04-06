@@ -13,7 +13,7 @@
     <div ng-controller='carController'>
       <p>Search for a car to put into your garage</p>
       <input type='text' ng-model="search" placeholder="Make of car">
-      <button ng-click='fetch()'>Search</button>
+      <button ng-click='fetchData()'>Search</button>
       <div ng-click='addToGarage(model.name)' ng-repeat="model in details.models">
         {{search + " " + model.name}}
       </div>
@@ -21,6 +21,7 @@
     <div ng-repeat='car in garage'>
       {{car}}
     </div>
+    <button ng-click='clearGarage()'>Sell The Whips</script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-mocks/angular-mocks.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>

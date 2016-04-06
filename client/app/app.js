@@ -4,9 +4,19 @@ app.controller('carController', function($scope, $http) {
 
   $scope.garage = [];
 
-  $scope.clearGarage = function(){};
+  $scope.clearGarage = function(){
+    $scope.garage = [];
+    $http({
+      method: "DELETE",
+      url: '/api/garage'
+    }).then(function successCallback(response){
+      console.log(response)
+    }, function errorCallback(response){
+      console.log(response);
+    });
+  };
 
-  $scope.fetch = function() {
+  $scope.fetchData = function() {
     $http.get('http://api.edmunds.com/api/vehicle/v2/' + $scope.search +'/models?fmt=json&api_key=w3qpygvj3j3vvb8u8rppbbk2')
       .then(function (response) {
         $scope.details = response.data;
